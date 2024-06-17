@@ -1,0 +1,41 @@
+class Solution {
+    public boolean check(int[] arr) {
+        if(compare(arr)) return true ;
+        for(int i=0; i<arr.length-1; i++){
+            int p1 = 1; 
+            int p2 = arr.length-1;
+            while(p1 < p2){
+                int temp = arr[p1];
+                arr[p1] = arr[p2];
+                arr[p2] = temp;
+
+                p1++;
+                p2--;
+            }
+            int b1 = 0;
+            int b2 = arr.length-1;
+            while(b1 <= b2){
+                int temp1 = arr[b1];
+                arr[b1] = arr[b2];
+                arr[b2] = temp1;
+
+                b1++;
+                b2--;                      
+            }
+            if(compare(arr)){
+                return true ;
+            }
+            
+        }
+        return false ;
+    }
+    public static boolean compare(int[] arr){
+        for(int j=0; j<arr.length-1; j++){
+                if(arr[j] > arr[j+1]){
+                    return false ;
+                }
+            }
+            return true;
+    }
+    }
+}
