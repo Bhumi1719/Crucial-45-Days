@@ -1,0 +1,25 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        if(nums.length == 1){
+            return;
+        }
+        k = k % nums.length;
+        rev(nums, 0, nums.length-1-k);
+        rev(nums, nums.length-k, nums.length-1);
+        rev(nums, 0, nums.length-1);
+    }
+
+    static void rev(int[] arr, int p1, int p2){
+        while(p1 < p2){
+            swap(arr, p1, p2);
+            p1++;
+            p2--;                 
+        }
+    }
+
+    static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+}
