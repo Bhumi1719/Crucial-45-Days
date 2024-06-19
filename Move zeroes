@@ -1,0 +1,30 @@
+class Solution {
+    public void moveZeroes(int[] arr) {
+        if(arr.length == 1 ){
+            return;
+        }
+        int j = -1;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] == 0){
+                j = i;
+                break;
+            }
+        }
+        if(j == -1){
+            return;
+        }
+        for(int i=j+1; i<arr.length; i++){
+            if(arr[i] != 0){
+                swap(arr, i, j);
+                j++;
+            }
+        }
+        
+        
+    }
+    public static void swap(int[] arr, int p1,int p2){
+        int temp = arr[p1];
+        arr[p1] = arr[p2];
+        arr[p2] = temp;
+    }
+}
